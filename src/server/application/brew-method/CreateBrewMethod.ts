@@ -1,4 +1,3 @@
-import { DomainException } from '@/server/domain/exceptions/DomainException';
 import { BrewMethod } from '../../domain/brew-method/BrewMethod';
 import { BrewMethodRepository } from '../../domain/brew-method/repositories/BrewMethodRepository';
 import { BrewMethodProperties } from '../../domain/brew-method/value-objects/BrewMethodProperties';
@@ -11,7 +10,7 @@ export interface CreateBrewMethodDTO {
   maxCoffeeDose: number;
 }
 
-export class CreateBrewMethodUseCase {
+export class CreateBrewMethod {
   constructor(private readonly brewMethodRepository: BrewMethodRepository) {}
 
   async execute(dto: CreateBrewMethodDTO): Promise<void> {
@@ -28,7 +27,7 @@ export class CreateBrewMethodUseCase {
       properties.name
     );
     if (existingBrewMethod) {
-      throw new DomainException('Brew method with this name already exists');
+      throw new Error('Brew method with this name already exists');
     }
 
     const brewMethod = BrewMethod.create(properties);

@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { BrewMethodProperties } from './BrewMethodProperties';
+import { BrewMethodProperties } from './value-objects/BrewMethodProperties';
 
 export class BrewMethod {
   private readonly id: string;

@@ -1,4 +1,4 @@
-import { DomainException } from '../exceptions/DomainException';
+import { DomainException } from '../../exceptions/DomainException';
 
 interface BrewMethodPropertiesParams {
   name: string;
