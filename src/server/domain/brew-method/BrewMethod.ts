@@ -1,19 +1,14 @@
-import { randomUUID } from 'crypto';
 import { BrewMethodProperties } from './value-objects/BrewMethodProperties';
 
 export class BrewMethod {
-  private readonly id: string;
-
   private constructor(
     private readonly properties: BrewMethodProperties,
-    id?: string
-  ) {
-    this.id = id ?? randomUUID();
-  }
+    private readonly id: string
+  ) {}
 
   public static create(
     properties: BrewMethodProperties,
-    id?: string
+    id: string
   ): BrewMethod {
     return new BrewMethod(properties, id);
   }

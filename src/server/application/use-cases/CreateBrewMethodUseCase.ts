@@ -1,4 +1,5 @@
 import { DomainException } from '@/server/domain/exceptions/DomainException';
+import { randomUUID } from 'crypto';
 import { BrewMethod } from '../../domain/brew-method/BrewMethod';
 import { BrewMethodRepository } from '../../domain/brew-method/repositories/BrewMethodRepository';
 import { BrewMethodProperties } from '../../domain/brew-method/value-objects/BrewMethodProperties';
@@ -31,7 +32,7 @@ export class CreateBrewMethodUseCase {
       throw new DomainException('Brew method with this name already exists');
     }
 
-    const brewMethod = BrewMethod.create(properties);
+    const brewMethod = BrewMethod.create(properties, randomUUID());
 
     await this.brewMethodRepository.save(brewMethod);
   }
