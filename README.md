@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brew Log ☕
 
-## Getting Started
+**A Domain-Driven Design (DDD) demonstration in Next.js**
 
-First, run the development server:
+Brew Log is an application designed to help home baristas and daily coffee makers log their brewing variables—such as temperature, dose, and grind size—so they can refine their coffee-making process over time. This project follows **Domain-Driven Design (DDD)** principles and serves as a demonstration of applying **DDD in a Next.js application**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- ✅ **Brew Method Management**: Create and manage different brew methods (e.g., Espresso, Filter).
+- ⚙️ **Backend-Only for Now**: Currently, this project is focused on backend development.
+- ⏳ **Planned Features**:
+  - **Drink Types**: Add drink types like Cappuccino, V60, French Press, etc.
+  - **Daily Coffee Journaling**: Log daily brewing variables and track improvements.
+
+## 🏗️ Architecture & Tech Stack
+
+This project is built using **Domain-Driven Design (DDD)** principles, ensuring separation of concerns and maintainability.
+
+### **Layers**
+
+- **Domain Layer**: Business logic, entities, value objects, and domain services.
+- **Application Layer**: Use cases and application logic.
+- **Infrastructure Layer**: Database repositories and external integrations.
+- **Presentation Layer**: App routes (using Next.js Server Actions & Server Components).
+
+### **Technologies Used**
+
+- **Next.js** – Full-stack React framework.
+- **TypeScript** – Type safety.
+- **Zod** – Input validation.
+- **next-safe-action** – Secure server actions.
+
+## 📂 Project Structure
+
+```
+📦 brew-log
+ ┣ 📂 src
+ ┃ ┣ 📂 app            # Presentation layer (Next.js App Router, Server Actions, Server Components)
+ ┃ ┣ 📂 server
+ ┃ ┃ ┣ 📂 domain       # Entities, Value Objects, Repository Interfaces (pure business logic)
+ ┃ ┃ ┣ 📂 application  # Use cases (interacts with domain)
+ ┃ ┃ ┗ 📂 infrastructure # Repository Implementations (ORM interactions, external services)
+ ┣ 📜 README.md
+ ┣ 📜 package.json
+ ┗ 📜 tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1️⃣ **Clone the Repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+git clone https://github.com/zelief/brew-log.git
+cd brew-log
+```
 
-## Learn More
+### 2️⃣ **Install Dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+bun install  # or npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3️⃣ **Run the Application**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+bun dev  # Start Next.js development server
+```
 
-## Deploy on Vercel
+### 4️⃣ **Run the Tests**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+bun test  # Run the tests
+```
